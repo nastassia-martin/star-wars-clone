@@ -1,7 +1,7 @@
 import Container from 'react-bootstrap/Container'
 import { Routes, Route } from 'react-router-dom'
-
 import './assets/scss/App.scss'
+import HomePage from './Pages/HomePage'
 
 const App = () => {
   return (
@@ -9,7 +9,7 @@ const App = () => {
         {/* <Navigation/> // add navigation bar */}
         <Container>
         <Routes>
-          {/* <Route path="/" element={<HomePage /}></Route> // Home page */}
+          <Route path="/" element={<HomePage/>}></Route>
           {/* <Route></Route> // Main Search Page */}
           {/* <Route></Route> Not Found */}
           {/* <Route></Route> Films*/} 
