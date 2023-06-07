@@ -23,3 +23,45 @@ export type SW_SearchData = {
     vehicles_count: number
     species_count: number
 }
+
+export type Film = {
+    id: number
+    title: string
+    episode_id: string
+    opening_crawl: string
+    director: string
+    producer: string
+    release_date: string
+    created: string
+    edited: string
+    characters: Characters[]
+    planets: Planets[]
+    starships: Starships[]
+    vehicles: Vehicles[]
+    species: Species[]
+}
+
+export type Characters = {
+    id: number
+    name: string
+}
+
+export type Planets = {
+    id: number
+    name: string
+}
+
+export type Starships = {
+    id: number
+    name: string
+}
+
+export type Vehicles = {
+    id: number
+    name: string
+}
+
+export type Species = {
+    id: number
+    name: string
+}

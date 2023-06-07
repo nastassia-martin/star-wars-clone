@@ -4,7 +4,8 @@ import './assets/scss/App.scss'
 import Navigation from './Components/Navigation'
 import HomePage from './Pages/HomePage'
 import NotFound from './Pages/NotFound'
-import Films from './Pages/Films'
+import FilmsPage from './Pages/FilmsPage'
+import FilmPage from './Pages/FilmPage'
 
 const App = () => {
   return (
@@ -15,7 +16,8 @@ const App = () => {
           <Route path="/" element={<HomePage />}></Route>
           {/* <Route></Route> // Main Search Page */}
           <Route path="/*" element={<NotFound />}></Route> 
-          <Route path="/films" element={<Films />}></Route> 
+          <Route path="/films" element={<FilmsPage />}></Route> 
+          <Route path='/films/:id' element={<FilmPage />} />
           {/* <Route></Route> People*/}
           {/* <Route></Route> Other Resources...*/}
         </Routes>
