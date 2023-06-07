@@ -24,7 +24,7 @@ export type SW_SearchData = {
     species_count: number
 }
 
-export type Film = {
+export type FilmResponse = {
     id: number
     title: string
     episode_id: string

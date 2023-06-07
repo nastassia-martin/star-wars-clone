@@ -15,6 +15,7 @@ const FilmsPage = () => {
     const [error, setError] = useState<string|null>(null)
     const [loading, setLoading] = useState(false)
     const [result, setResult] = useState<SW_SearchResponse | null>(null)
+    
 
     //get all films req
     const getFilms = async () =>{
@@ -63,7 +64,7 @@ return (
                                             {d.opening_crawl}
                                         </Card.Text>
                                         
-                                        <ListGroup className="">
+                                        <ListGroup>
                                             <ListGroup.Item>
                                                 Character count: {d.characters_count}
                                             </ListGroup.Item>
