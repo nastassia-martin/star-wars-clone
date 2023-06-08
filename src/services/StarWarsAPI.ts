@@ -5,7 +5,7 @@
  */
 
 import axios from 'axios'
-import {FilmResponse, SW_SearchResponse} from '../Types/index'
+import {FilmResponse, SW_SearchResponse} from '../types/index'
 
 const BASE_URL = 'https://swapi.thehiveresistance.com/api'
 

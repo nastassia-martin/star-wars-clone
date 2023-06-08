@@ -4,7 +4,7 @@ import Container from 'react-bootstrap/Container'
 import {Link, NavLink} from 'react-router-dom'
 import * as StarWarsAPI from '../services/StarWarsAPI'
 import { useEffect, useState } from 'react';
-import { SW_SearchResponse } from '../Types';
+import { SW_SearchResponse } from '../types';
 
 
 const HomePage = () => {
@@ -57,8 +57,7 @@ const HomePage = () => {
                 </Card.Body>
             </Card>
         </Container>    
-    
-  );
+  )
 }
 
 

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 
 import * as StarWarsAPI from '../services/StarWarsAPI'
-import { FilmResponse } from '../Types'
+import { FilmResponse } from '../types'
 import Accordion from 'react-bootstrap/Accordion';
 import  Alert  from 'react-bootstrap/Alert'
 import Button  from 'react-bootstrap/Button'
@@ -51,6 +51,7 @@ const FilmPage = () => {
         )}
         {loading && <p>😌 Loading...</p>}
         {film && (
+            <>
             <Container className="m-3">
                 <Row className="g-4 mb-3">
                     <Card className='p-3' key={film.id}>
@@ -147,9 +148,11 @@ const FilmPage = () => {
                     </Card>
                 </Row>
             </Container>
+            </>
+            
+            
         )}           
     </>
   )
 }
-
 export default FilmPage

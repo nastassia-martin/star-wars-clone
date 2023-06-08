@@ -8,7 +8,7 @@ import Container from "react-bootstrap/Container"
 import { Link } from "react-router-dom"
 import * as StarWarsAPI from '../services/StarWarsAPI'
 import { useEffect, useState } from "react"
-import { SW_SearchResponse } from "../Types"
+import { SW_SearchResponse } from "../types"
 
 
 const FilmsPage = () => {
@@ -49,7 +49,7 @@ return (
         {result && (
             <>
                 <p>Showing {result.total} of {result.to} films found!</p>
-                <Container>
+                <Container className="p-4">
                     <Row  className="g-4">
                         {result.data.map(d=> (
                             <Card
@@ -80,9 +80,8 @@ return (
                         ))}
                     </Row>
                 </Container>
-
                 <Link to="/">
-                    <Button variant="primary">Go to Home Page</Button>
+                    <Button className="mb-3 ml-3" variant="primary">Go to Home Page</Button>
                 </Link>
             </>
         )} 
