@@ -1,6 +1,13 @@
 @import "bootstrap/scss/bootstrap";
 
+
 body {
     background-color: black;
     color: #39FF14
 }
+
+#App {
+	min-height: 100vh;
+}
+
+

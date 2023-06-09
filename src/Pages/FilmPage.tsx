@@ -2,20 +2,19 @@ import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 
 import * as StarWarsAPI from '../services/StarWarsAPI'
-import { FilmResponse } from '../types'
+import { SW_FilmResponse } from '../types'
 import Accordion from 'react-bootstrap/Accordion';
 import  Alert  from 'react-bootstrap/Alert'
 import Button  from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
 import Container from 'react-bootstrap/Container'
 import ListGroup from 'react-bootstrap/ListGroup'
-
 import Row from 'react-bootstrap/Row'
 
 const FilmPage = () => {
     const [error, setError] = useState<string | null>(null) // error state
     const [loading, setLoading] = useState(true) // loading state
-    const [film, setFilm] = useState<FilmResponse | null>(null)
+    const [film, setFilm] = useState<SW_FilmResponse | null>(null)
     const { id } = useParams() // for API
     const filmId = Number(id) // for API
     const navigate = useNavigate()

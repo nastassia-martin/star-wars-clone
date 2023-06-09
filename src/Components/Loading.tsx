@@ -1,14 +1,19 @@
-import React from 'react'
-
+import Image from 'react-bootstrap/Image'
+import babyYoda from '../assets/images/BabyYoda.png'
+// import '../assets/scss/loading.scss'
 
 
 const Loading = () => {
   return (
-    
-        <div>
-        <p>😌 Loading...</p>
-      </div>
- 
+        <>
+            <Image 
+                src={babyYoda}
+                alt="a cute picture of baby yoda drinking coffee"
+                fluid
+                className='mx-auto d-block babyYoda'
+            />
+            <p className='text-center'>Patience friend...</p>
+        </>
     
   )
 }
