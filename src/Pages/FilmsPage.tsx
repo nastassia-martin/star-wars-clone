@@ -10,7 +10,7 @@ import { useEffect, useState } from "react"
 import { SW_FilmsResponse } from "../types"
 import * as StarWarsAPI from '../services/StarWarsAPI'
 import Loading from '../components/Loading'
-import Errors from '../components/Error'
+import ErrorHandling from '../components/ErrorHandling'
 
 
 const FilmsPage = () => {
@@ -46,7 +46,7 @@ const FilmsPage = () => {
 return (
         <>
 
-        {error && <Errors error={error} />}
+        {error && <ErrorHandling error={error} />}
         {loading && <Loading/>}
         {result && (
             <>

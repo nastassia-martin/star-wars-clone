@@ -11,6 +11,8 @@ import Container from 'react-bootstrap/Container'
 import ListGroup from 'react-bootstrap/ListGroup'
 import Row from 'react-bootstrap/Row'
 import Loading from '../components/Loading';
+import ErrorHandling from '../components/ErrorHandling'
+
 
 const FilmPage = () => {
     const [error, setError] = useState<string | null>(null) // error state
@@ -43,14 +45,7 @@ const FilmPage = () => {
 
   return (
     <>
-        {error && (
-            <Alert variant="warning">
-                {error}
-                <Link to="/">
-                    <Button variant="primary">Go to Home Page</Button>
-                </Link>
-            </Alert>
-        )}
+        {error && <ErrorHandling error={error} />}
         {loading && <Loading/>}
         {film && (
             <>
