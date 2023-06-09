@@ -1,4 +1,4 @@
-export type SW_SearchResponse = {
+export type SW_FilmsResponse = {
     current_page: number
     data: SW_SearchData[]
     from: number
@@ -7,7 +7,7 @@ export type SW_SearchResponse = {
     total: number
 }
 
-export type SW_SearchData = {
+export type SW_FilmData = {
     id: number
     title: string
     episode_id: string
@@ -24,7 +24,7 @@ export type SW_SearchData = {
     species_count: number
 }
 
-export type FilmResponse = {
+export type SW_FilmResponse = {
     id: number
     title: string
     episode_id: string
@@ -34,34 +34,14 @@ export type FilmResponse = {
     release_date: string
     created: string
     edited: string
-    characters: Characters[]
-    planets: Planets[]
-    starships: Starships[]
-    vehicles: Vehicles[]
-    species: Species[]
+    characters: Resource[]
+    planets: Resource[]
+    starships: Resource[]
+    vehicles: Resource[]
+    species: Resource[]
 }
 
-export type Characters = {
-    id: number
-    name: string
-}
-
-export type Planets = {
-    id: number
-    name: string
-}
-
-export type Starships = {
-    id: number
-    name: string
-}
-
-export type Vehicles = {
-    id: number
-    name: string
-}
-
-export type Species = {
+export type Resource = {
     id: number
     name: string
 }

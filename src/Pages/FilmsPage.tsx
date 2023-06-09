@@ -5,19 +5,17 @@ import Container from "react-bootstrap/Container"
 import  Form  from "react-bootstrap/Form"
 import ListGroup from 'react-bootstrap/ListGroup'
 import Row from 'react-bootstrap/Row'
-
 import { Link } from "react-router-dom"
-
 import { useEffect, useState } from "react"
-
-import { SW_SearchResponse } from "../types"
+import { SW_FilmsResponse } from "../types"
 import * as StarWarsAPI from '../services/StarWarsAPI'
+import Loading from '../components/Loading'
 
 
 const FilmsPage = () => {
     const [error, setError] = useState<string|null>(null)
     const [loading, setLoading] = useState(false)
-    const [result, setResult] = useState<SW_SearchResponse | null>(null)
+    const [result, setResult] = useState<SW_FilmsResponse | null>(null)
     const [page, setPage] = useState(1)
 
     //get all films req
@@ -39,7 +37,7 @@ const FilmsPage = () => {
         }       
         setPage(1)
     }
-    // fetch data when component is mounted, only once
+    // fetch data when component is mounted, and fetch in case there is a change in page 
     useEffect( ()=> {
         getFilms(page)
     }, [page])
@@ -48,7 +46,7 @@ return (
         <>
 
         {error && <Alert variant="warning">{error}</Alert>}
-        {loading && <p>😌 Loading...</p>}
+        {loading && <Loading/>}
         {result && (
             <>
                 <p>Showing {result.total} of {result.to} films found!</p>
