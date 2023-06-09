@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 
 import * as StarWarsAPI from '../services/StarWarsAPI'
 import { FilmResponse } from '../types'
@@ -18,6 +18,8 @@ const FilmPage = () => {
     const [film, setFilm] = useState<FilmResponse | null>(null)
     const { id } = useParams() // for API
     const filmId = Number(id) // for API
+    const navigate = useNavigate()
+
 
     const getFilm = async (filmId: number) => {
         setError(null)
@@ -148,9 +150,14 @@ const FilmPage = () => {
                     </Card>
                 </Row>
             </Container>
+            {/* // go back button */}
+            <div className="nav-back">
+                <Button
+                    onClick={() => navigate(-1)} 
+                    variant="primary"
+                >&laquo; Back to films</Button>
+            </div>
             </>
-            
-            
         )}           
     </>
   )

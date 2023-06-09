@@ -83,6 +83,25 @@ return (
                 <Link to="/">
                     <Button className="mb-3 ml-3" variant="primary">Go to Home Page</Button>
                 </Link>
+                <div className="d-flex justify-content-between align-items-center">
+                    <div className="prev">
+                        <Button
+                            // disabled={page <= 0} // IF PAGE IS ON THE FIRST PAGE YOU CANT GO BACK
+                            // onClick={() => { setPage(prevValue => prevValue - 1) }} GO BACK BY 1 PAGE
+                            variant="primary"
+                        >Previous Page</Button>
+                        <div className="page">Page NUMBER/of TOTAL PAGES</div>
+                        <div className="next">
+                            <Button
+                                // disabled={page + 1 >= searchResult.nbPages} //IF PAGE IS ON THE LAST PAGE YOU CANT GO BACK
+                                //onClick={() => { setPage(prevValue => prevValue + 1) }} //GO forward BY 1 PAGE
+                                variant="primary"
+                            >Next Page</Button>
+                        </div>
+                    </div>
+
+
+                </div>
             </>
         )} 
             {/* <h1>Pick a film</h1> */}
