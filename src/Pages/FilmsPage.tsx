@@ -1,4 +1,3 @@
-import Alert from 'react-bootstrap/Alert'
 import  Button  from "react-bootstrap/Button"
 import Card from 'react-bootstrap/Card'
 import Container from "react-bootstrap/Container"
@@ -11,6 +10,7 @@ import { SW_FilmsResponse } from "../types"
 import * as StarWarsAPI from '../services/StarWarsAPI'
 import Loading from '../components/Loading'
 import ErrorHandling from '../components/ErrorHandling'
+import Pagination from "../components/Pagination"
 
 
 const FilmsPage = () => {
@@ -25,15 +25,15 @@ const FilmsPage = () => {
         setLoading(true) // load whilst fetching data
         setResult(null)
 
-        try{
+        try {
             // make req 
             const res = await StarWarsAPI.getAllFilms(pge) 
             console.log(res)
             // store the info in a state
             setResult(res)
-        } catch (error: any){
+            } catch (error: any){
             setError(error.message)
-        } finally{
+            } finally{
             setLoading(false) //remove if data is fetched or an error is displayed
         }       
         setPage(1)
@@ -85,7 +85,13 @@ return (
                 <Link to="/">
                     <Button className="mb-3 ml-3" variant="primary">Go to Home Page</Button>
                 </Link>
-                <div className="d-flex justify-content-between align-items-center">
+                <Pagination 
+                result={result}
+                page={page}
+                onPreviousPage={() => setPage(prevValue => prevValue - 1) }
+                onNextPage={()=> setPage(prevValue => prevValue + 1) }
+                />
+                {/* <div className="d-flex justify-content-between align-items-center">
                     <div className="prev">
                         <Button
                             disabled={page <= 1} // IF PAGE IS ON THE FIRST PAGE YOU CANT GO BACK
@@ -101,7 +107,7 @@ return (
                             >Next Page</Button>
                         </div>
                     </div>
-                </div>
+                </div> */}
             </>
         )} 
             {/* <h1>Pick a film</h1> */}

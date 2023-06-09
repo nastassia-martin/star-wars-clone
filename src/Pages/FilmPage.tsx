@@ -4,7 +4,6 @@ import { Link, useNavigate, useParams } from 'react-router-dom'
 import * as StarWarsAPI from '../services/StarWarsAPI'
 import { SW_FilmResponse } from '../types'
 import Accordion from 'react-bootstrap/Accordion';
-import  Alert  from 'react-bootstrap/Alert'
 import Button  from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
 import Container from 'react-bootstrap/Container'
