@@ -10,6 +10,7 @@ import Card from 'react-bootstrap/Card'
 import Container from 'react-bootstrap/Container'
 import ListGroup from 'react-bootstrap/ListGroup'
 import Row from 'react-bootstrap/Row'
+import Loading from '../components/Loading';
 
 const FilmPage = () => {
     const [error, setError] = useState<string | null>(null) // error state
@@ -50,7 +51,7 @@ const FilmPage = () => {
                 </Link>
             </Alert>
         )}
-        {loading && <p>😌 Loading...</p>}
+        {loading && <Loading/>}
         {film && (
             <>
             <Container className="m-3">

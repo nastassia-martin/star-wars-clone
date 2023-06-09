@@ -5,7 +5,7 @@
  */
 
 import axios from 'axios'
-import {FilmResponse, SW_SearchResponse} from '../types/index'
+import {SW_FilmResponse, SW_FilmsResponse} from '../types/index'
 
 const BASE_URL = 'https://swapi.thehiveresistance.com/api'
 
@@ -15,10 +15,10 @@ const BASE_URL = 'https://swapi.thehiveresistance.com/api'
  */
 export const getAllFilms = async (page: number) => {
 	const response = await axios.get(`${BASE_URL}/films?page=${page}`)
-	return response.data as SW_SearchResponse
+	return response.data as SW_FilmsResponse
 } 
 
 export const getFilm = async (film_id: number) => {
 	const response = await axios.get(`${BASE_URL}/films/${film_id}`)
-	return response.data as FilmResponse
+	return response.data as SW_FilmResponse
 }
