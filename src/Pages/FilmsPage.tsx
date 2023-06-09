@@ -1,32 +1,35 @@
 import Alert from 'react-bootstrap/Alert'
 import  Button  from "react-bootstrap/Button"
+import Card from 'react-bootstrap/Card'
+import Container from "react-bootstrap/Container"
 import  Form  from "react-bootstrap/Form"
 import ListGroup from 'react-bootstrap/ListGroup'
 import Row from 'react-bootstrap/Row'
-import Card from 'react-bootstrap/Card'
-import Container from "react-bootstrap/Container"
+
 import { Link } from "react-router-dom"
-import * as StarWarsAPI from '../services/StarWarsAPI'
+
 import { useEffect, useState } from "react"
+
 import { SW_SearchResponse } from "../types"
+import * as StarWarsAPI from '../services/StarWarsAPI'
 
 
 const FilmsPage = () => {
     const [error, setError] = useState<string|null>(null)
     const [loading, setLoading] = useState(false)
     const [result, setResult] = useState<SW_SearchResponse | null>(null)
-    
+    const [page, setPage] = useState(1)
 
     //get all films req
-    const getFilms = async () =>{
+    const getFilms = async (pge = 1) =>{
         setError(null) // null prev result
         setLoading(true) // load whilst fetching data
         setResult(null)
 
         try{
             // make req 
-            const res = await StarWarsAPI.getAllFilms() 
-            //console.log(res) //
+            const res = await StarWarsAPI.getAllFilms(pge) 
+            console.log(res)
             // store the info in a state
             setResult(res)
         } catch (error: any){
@@ -34,12 +37,12 @@ const FilmsPage = () => {
         } finally{
             setLoading(false) //remove if data is fetched or an error is displayed
         }       
-        //need to output response
+        setPage(1)
     }
     // fetch data when component is mounted, only once
     useEffect( ()=> {
-        getFilms()
-    }, [])
+        getFilms(page)
+    }, [page])
 
 return (
         <>
@@ -86,21 +89,19 @@ return (
                 <div className="d-flex justify-content-between align-items-center">
                     <div className="prev">
                         <Button
-                            // disabled={page <= 0} // IF PAGE IS ON THE FIRST PAGE YOU CANT GO BACK
-                            // onClick={() => { setPage(prevValue => prevValue - 1) }} GO BACK BY 1 PAGE
+                            disabled={page <= 1} // IF PAGE IS ON THE FIRST PAGE YOU CANT GO BACK
+                            onClick={() => { setPage(prevValue => prevValue - 1) }} //GO BACK BY 1 PAGE
                             variant="primary"
                         >Previous Page</Button>
-                        <div className="page">Page NUMBER/of TOTAL PAGES</div>
+                        <div className="page">Page {result.current_page} of {result.last_page}</div>
                         <div className="next">
                             <Button
-                                // disabled={page + 1 >= searchResult.nbPages} //IF PAGE IS ON THE LAST PAGE YOU CANT GO BACK
-                                //onClick={() => { setPage(prevValue => prevValue + 1) }} //GO forward BY 1 PAGE
+                                disabled={page + 1 >= result.last_page} //IF PAGE IS ON THE LAST PAGE YOU CANT GO BACK
+                                onClick={() => { setPage(prevValue => prevValue + 1) }} //GO forward BY 1 PAGE
                                 variant="primary"
                             >Next Page</Button>
                         </div>
                     </div>
-
-
                 </div>
             </>
         )} 

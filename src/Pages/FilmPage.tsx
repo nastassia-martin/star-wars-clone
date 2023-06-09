@@ -150,7 +150,7 @@ const FilmPage = () => {
                     </Card>
                 </Row>
             </Container>
-            {/* // go back button */}
+            {/* // make into component */}
             <div className="nav-back">
                 <Button
                     onClick={() => navigate(-1)} 

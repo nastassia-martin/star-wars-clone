@@ -4,15 +4,16 @@ PAGES:-
 - NotFound Page ✅
 - Films ✅
 - Films/:1 ✅
-- move Container for /films to Component?
 
 PAGES
 
 - Characters
 
-to do: 8/6/23'
+to do: 9/6/23'
 
 - pagination (basic)
+- move Container for /films to Component?
+- component for go back button
 
 Nice to haves:
 

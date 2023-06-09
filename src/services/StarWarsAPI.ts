@@ -13,8 +13,8 @@ const BASE_URL = 'https://swapi.thehiveresistance.com/api'
  * Execute a HTTP GET request to all Films.
  * @returns Promise
  */
-export const getAllFilms = async () => {
-	const response = await axios.get(`${BASE_URL}/films`)
+export const getAllFilms = async (page: number) => {
+	const response = await axios.get(`${BASE_URL}/films?page=${page}`)
 	return response.data as SW_SearchResponse
 } 
 
