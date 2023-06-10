@@ -1,15 +1,11 @@
-import  Button  from "react-bootstrap/Button"
-import Card from 'react-bootstrap/Card'
-import Container from "react-bootstrap/Container"
-import  Form  from "react-bootstrap/Form"
-import ListGroup from 'react-bootstrap/ListGroup'
-import Row from 'react-bootstrap/Row'
-import { Link } from "react-router-dom"
 import { useEffect, useState } from "react"
 import { SW_FilmsResponse } from "../types"
 import * as StarWarsAPI from '../services/StarWarsAPI'
-import Loading from '../components/Loading'
+
+//components
 import ErrorHandling from '../components/ErrorHandling'
+import Films from "../components/Films"
+import Loading from '../components/Loading'
 import Pagination from "../components/Pagination"
 
 
@@ -44,72 +40,23 @@ const FilmsPage = () => {
     }, [page])
 
 return (
-        <>
-
-        {error && <ErrorHandling error={error} />}
-        {loading && <Loading/>}
-        {result && (
             <>
-                <p>Showing {result.total} of {result.to} films found!</p>
-                <Container className="p-4">
-                    <Row  className="g-4">
-                        {result.data.map(d=> (
-                            <Card
-                            key={d.id}
-                            as={Link}
-                            to={`/films/${d.id}`}
-                            >
-                                <Card.Body>
-                                    <Card.Title>{d.title}</Card.Title>
-                                        {/* <Card.Text>Summary:</Card.Text> */}
-                                        <Card.Text className="text-truncate">
-                                            {d.opening_crawl}
-                                        </Card.Text>
-                                        
-                                        <ListGroup>
-                                            <ListGroup.Item>
-                                                Character count: {d.characters_count}
-                                            </ListGroup.Item>
-                                            <ListGroup.Item>
-                                                Release Date: {d.release_date}
-                                            </ListGroup.Item>
-                                            <ListGroup.Item>
-                                                Directed by: {d.director}
-                                            </ListGroup.Item>
-                                        </ListGroup>
-                                </Card.Body>
-                            </Card>
-                        ))}
-                    </Row>
-                </Container>
-                <Link to="/">
-                    <Button className="mb-3 ml-3" variant="primary">Go to Home Page</Button>
-                </Link>
-                <Pagination 
-                result={result}
-                page={page}
-                onPreviousPage={() => setPage(prevValue => prevValue - 1) }
-                onNextPage={()=> setPage(prevValue => prevValue + 1) }
+                {error && <ErrorHandling error={error} />}
+                {loading && <Loading/>}
+                {result && (
+                <>
+                    <Films res={result}/>
+                    <Pagination
+                        page={page}
+                        onPreviousPage={() => setPage(prevValue => prevValue - 1)}
+                        onNextPage={() => setPage(prevValue => prevValue + 1)} 
+                        currentPage={result.current_page} 
+                        lastPage={result.last_page} 
                 />
-                {/* <div className="d-flex justify-content-between align-items-center">
-                    <div className="prev">
-                        <Button
-                            disabled={page <= 1} // IF PAGE IS ON THE FIRST PAGE YOU CANT GO BACK
-                            onClick={() => { setPage(prevValue => prevValue - 1) }} //GO BACK BY 1 PAGE
-                            variant="primary"
-                        >Previous Page</Button>
-                        <div className="page">Page {result.current_page} of {result.last_page}</div>
-                        <div className="next">
-                            <Button
-                                disabled={page + 1 >= result.last_page} //IF PAGE IS ON THE LAST PAGE YOU CANT GO BACK
-                                onClick={() => { setPage(prevValue => prevValue + 1) }} //GO forward BY 1 PAGE
-                                variant="primary"
-                            >Next Page</Button>
-                        </div>
-                    </div>
-                </div> */}
             </>
-        )} 
+        )
+        }
+
             {/* <h1>Pick a film</h1> */}
                 {/* <Form>
                     <Form.Group className="mb-3" controlId="searchQuery">

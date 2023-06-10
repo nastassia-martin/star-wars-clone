@@ -1,7 +1,5 @@
 import React from 'react'
 import Button from 'react-bootstrap/Button'
-import { SW_FilmsResponse } from '../types'
-
 
 interface IProps {
     currentPage: number
@@ -9,7 +7,6 @@ interface IProps {
     page: number
     onPreviousPage: () => void
     onNextPage: () => void
-
 }
 
 const Pagination: React.FC<IProps> = ({currentPage, lastPage, page, onNextPage, onPreviousPage}) => {
@@ -23,14 +20,9 @@ const Pagination: React.FC<IProps> = ({currentPage, lastPage, page, onNextPage, 
             >Previous Page</Button>
         </div> 
         <div className="page">Page {currentPage} of {lastPage}</div> 
-        {/* can refactor this a little. you don't need the full reult, just a number */}
         <div className="next">
-            
-            {/* can refactor this a little. you don't need the full reult, just a number */}
-
             <Button
                 disabled={page + 1 >= lastPage} //IF PAGE IS ON THE LAST PAGE YOU CANT GO BACK
-
                 onClick={() => { onNextPage}} //GO forward BY 1 PAGE
                 variant="primary"
             >Next Page</Button>

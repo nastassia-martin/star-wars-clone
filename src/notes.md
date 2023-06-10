@@ -11,9 +11,10 @@ PAGES
 
 to do: 9/6/23'
 
-- pagination (basic)
+- pagination (basic) ✅
 - move Container for /films to Component?
 - component for go back button
+- might need to refactor pagination component a litte - erxtractiong too much data?
 
 Nice to haves:
 
