@@ -4,13 +4,15 @@ import { SW_FilmsResponse } from '../types'
 
 
 interface IProps {
-    result: SW_FilmsResponse
+    currentPage: number
+    lastPage: number
     page: number
     onPreviousPage: () => void
     onNextPage: () => void
+
 }
 
-const Pagination: React.FC<IProps> = ({result, page, onNextPage, onPreviousPage}) => {
+const Pagination: React.FC<IProps> = ({currentPage, lastPage, page, onNextPage, onPreviousPage}) => {
   return (
     <div className="d-flex justify-content-between align-items-center">
         <div className="prev">
@@ -20,10 +22,15 @@ const Pagination: React.FC<IProps> = ({result, page, onNextPage, onPreviousPage}
                 variant="primary"
             >Previous Page</Button>
         </div> 
-        <div className="page">Page {result.current_page} of {result.last_page}</div>
+        <div className="page">Page {currentPage} of {lastPage}</div> 
+        {/* can refactor this a little. you don't need the full reult, just a number */}
         <div className="next">
+            
+            {/* can refactor this a little. you don't need the full reult, just a number */}
+
             <Button
-                disabled={page + 1 >= result.last_page} //IF PAGE IS ON THE LAST PAGE YOU CANT GO BACK
+                disabled={page + 1 >= lastPage} //IF PAGE IS ON THE LAST PAGE YOU CANT GO BACK
+
                 onClick={() => { onNextPage}} //GO forward BY 1 PAGE
                 variant="primary"
             >Next Page</Button>
