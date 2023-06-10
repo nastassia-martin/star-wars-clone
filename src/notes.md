@@ -13,8 +13,14 @@ to do: 9/6/23'
 
 - pagination (basic) ✅
 - move Container for /films to Component? ✅
-- component for go back button
-- might need to refactor pagination component a litte - erxtractiong too much data? ✅
+- component for go back button ✅
+- mig
+
+to do: 10/6/23
+
+- types for people ✅
+- api for people
+- people Page
 
 Nice to haves:
 
