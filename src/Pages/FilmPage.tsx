@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 
 import * as StarWarsAPI from '../services/StarWarsAPI'
 import { SW_FilmResponse } from '../types'

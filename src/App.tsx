@@ -7,6 +7,7 @@ import NotFound from './pages/NotFound'
 import FilmsPage from './pages/FilmsPage'
 import FilmPage from './pages/FilmPage'
 import PeoplePage from './pages/PeoplePage'
+import PersonPage from './pages/PersonPage'
 
 const App = () => {
   return (
@@ -14,12 +15,14 @@ const App = () => {
         <Navigation/>
         <Container>
         <Routes>
-          <Route path="/" element={<HomePage />}></Route>
+          <Route path="/" element={<HomePage />} />
           {/* <Route></Route> // Main Search Page */}
-          <Route path="/*" element={<NotFound />}></Route> 
-          <Route path="/films" element={<FilmsPage />}></Route> 
+          <Route path="/*" element={<NotFound />} /> 
+          <Route path="/films" element={<FilmsPage />} />
           <Route path='/films/:id' element={<FilmPage />} />
-          <Route path="/people" element={<PeoplePage/>}></Route> 
+          <Route path="/people" element={<PeoplePage/>} />
+          <Route path='/people/:id' element={<PersonPage />} />
+
           {/* <Route></Route> Other Resources...*/}
         </Routes>
         </Container>
