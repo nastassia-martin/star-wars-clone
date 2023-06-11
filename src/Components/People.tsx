@@ -1,45 +1,38 @@
 import React from 'react'
-
 import Card from 'react-bootstrap/Card'
 import Container from 'react-bootstrap/Container'
 import ListGroup from 'react-bootstrap/ListGroup'
 import Row from 'react-bootstrap/Row'
 import { Link } from "react-router-dom"
-import { SW_FilmsResponse } from '../types'
+import { SW_PeopleResponse } from '../types'
 
 interface IProps {
-    res: SW_FilmsResponse
+    res: SW_PeopleResponse
 }
 
-
-const Films: React.FC<IProps> = ({res}) => {
+const People:React.FC <IProps> = ({res}) => {
   return (
-    <>
-        <p>Showing films {res.from} to {res.to} of all {res.total} films!</p>
+        <>
+            <p>Showing characters {res.from} to {res.to} of {res.total} characters!</p>
                 <Container className="p-4">
                     <Row  className="g-4">
-                        {res.data.map(d=> (
+                        {res.data.map(d => (
                             <Card
                             key={d.id}
                             as={Link}
-                            to={`/films/${d.id}`}
+                            to={`/people/${d.id}`}
                             >
                                 <Card.Body>
-                                    <Card.Title>{d.title}</Card.Title>
-                                        {/* <Card.Text>Summary:</Card.Text> */}
-                                        <Card.Text className="text-truncate">
-                                            {d.opening_crawl}
-                                        </Card.Text>
-                                        
+                                    <Card.Title>{d.name}</Card.Title>
                                         <ListGroup>
                                             <ListGroup.Item>
-                                                Character count: {d.characters_count}
+                                                HomeWorld: {d.homeworld.name}
                                             </ListGroup.Item>
                                             <ListGroup.Item>
-                                                Release Date: {d.release_date}
+                                                Birth year: {d.birth_year}
                                             </ListGroup.Item>
                                             <ListGroup.Item>
-                                                Directed by: {d.director}
+                                                Films Count: {d.films_count}
                                             </ListGroup.Item>
                                         </ListGroup>
                                 </Card.Body>
@@ -47,8 +40,8 @@ const Films: React.FC<IProps> = ({res}) => {
                         ))}
                     </Row>
                 </Container>
-    </>
+        </>
   )
 }
 
-export default Films
+export default People

@@ -5,12 +5,7 @@ import * as StarWarsAPI from '../services/StarWarsAPI'
 import ErrorHandling from '../components/ErrorHandling'
 import Loading from '../components/Loading'
 import Pagination from "../components/Pagination"
-
-import Card from 'react-bootstrap/Card'
-import Container from 'react-bootstrap/Container'
-import ListGroup from 'react-bootstrap/ListGroup'
-import Row from 'react-bootstrap/Row'
-import { Link } from "react-router-dom"
+import People from "../components/People"
 
 const PeoplePage = () => {
     const [error, setError] = useState<string|null>(null)
@@ -48,33 +43,7 @@ const PeoplePage = () => {
             {loading && <Loading/>}
             {result && (
                 <>
-                <p>Showing characters {result.from} to {result.to} of total characters!</p>
-                <Container className="p-4">
-                    <Row  className="g-4">
-                        {result.data.map(d=> (
-                            <Card
-                            key={d.id}
-                            as={Link}
-                            to={`/people/${d.id}`}
-                            >
-                                <Card.Body>
-                                    <Card.Title>{d.name}</Card.Title>
-                                        <ListGroup>
-                                            <ListGroup.Item>
-                                                Birth year: {d.birth_year}
-                                            </ListGroup.Item>
-                                            <ListGroup.Item>
-                                            HomeWorld: {d.homeworld.name}
-                                            </ListGroup.Item>
-                                            <ListGroup.Item>
-                                                Films Count: {d.films_count}
-                                            </ListGroup.Item>
-                                        </ListGroup>
-                                </Card.Body>
-                            </Card>
-                        ))}
-                    </Row>
-                </Container>
+                    <People res={result} />
                     <Pagination
                         page={page}
                         onPreviousPage={() => setPage(prevValue => prevValue - 1)}

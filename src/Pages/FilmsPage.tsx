@@ -52,10 +52,9 @@ return (
                         onNextPage={() => setPage(prevValue => prevValue + 1)} 
                         currentPage={result.current_page} 
                         lastPage={result.last_page} 
-                />
-            </>
-        )
-        }
+                    />
+                </>
+                )}
 
             {/* <h1>Pick a film</h1> */}
                 {/* <Form>
