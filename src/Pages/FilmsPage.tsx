@@ -32,7 +32,7 @@ const FilmsPage = () => {
             } finally{
             setLoading(false) //remove if data is fetched or an error is displayed
         }       
-        setPage(1)
+        // setPage(1)
     }
     // fetch data when component is mounted, and fetch in case there is a change in page 
     useEffect( ()=> {

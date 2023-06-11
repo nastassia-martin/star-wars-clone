@@ -48,31 +48,26 @@ const PeoplePage = () => {
             {loading && <Loading/>}
             {result && (
                 <>
-                <p>Showing {result.total} of {result.to} films found!</p>
+                <p>Showing characters {result.from} to {result.to} of total characters!</p>
                 <Container className="p-4">
                     <Row  className="g-4">
                         {result.data.map(d=> (
                             <Card
                             key={d.id}
                             as={Link}
-                            to={`/films/${d.id}`}
+                            to={`/people/${d.id}`}
                             >
                                 <Card.Body>
                                     <Card.Title>{d.name}</Card.Title>
-                                        {/* <Card.Text>Summary:</Card.Text> */}
-                                        <Card.Text className="text-truncate">
-                                            {d.eye_color}
-                                        </Card.Text>
-                                        
                                         <ListGroup>
                                             <ListGroup.Item>
-                                                Character count: {d.hair_color}
+                                                Birth year: {d.birth_year}
                                             </ListGroup.Item>
                                             <ListGroup.Item>
-                                                Release Date: {d.films}
+                                            HomeWorld: {d.homeworld.name}
                                             </ListGroup.Item>
                                             <ListGroup.Item>
-                                                Directed by: {d.height}
+                                                Films Count: {d.films_count}
                                             </ListGroup.Item>
                                         </ListGroup>
                                 </Card.Body>
@@ -80,14 +75,13 @@ const PeoplePage = () => {
                         ))}
                     </Row>
                 </Container>
-                   
                     <Pagination
                         page={page}
                         onPreviousPage={() => setPage(prevValue => prevValue - 1)}
                         onNextPage={() => setPage(prevValue => prevValue + 1)} 
                         currentPage={result.current_page} 
                         lastPage={result.last_page} 
-                />
+                    />
                 </>
             )}
         </>

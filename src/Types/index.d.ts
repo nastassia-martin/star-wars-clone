@@ -71,11 +71,10 @@ export type SW_PeopleData = {
     skin_color: string
     created: string
     edited: string
-    homeworld: Resource[]
-    films: number
+    films_count: number
     starships_count: number
     vehicles_count: number
-    homeworld: Resource[]
+    homeworld: Resource
 }
 
 export type SW_PersonResponse = {
@@ -89,7 +88,7 @@ export type SW_PersonResponse = {
     skin_color: string
     created: string
     edited: string
-    homeworld: Resource[]
+    homeworld: Resource
     films: FilmResource[]
     species: Resource[]
     starships: Resource[]
