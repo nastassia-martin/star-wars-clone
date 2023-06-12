@@ -6,36 +6,41 @@ import ErrorHandling from '../components/ErrorHandling'
 import Loading from '../components/Loading'
 import Pagination from "../components/Pagination"
 import People from "../components/People"
+import { useSearchParams } from "react-router-dom"
 
 const PeoplePage = () => {
     const [error, setError] = useState<string|null>(null)
     const [loading, setLoading] = useState(false)
     const [result, setResult] = useState<SW_PeopleResponse | null>(null)
-    const [page, setPage] = useState(1)
+    const [searchParams, setSearchParams] = useSearchParams()
+    // get "page=" from URL Search Params
+    const [page, setPage] = useState(Number(searchParams.get("page") || 1))
 
     //get all people req
-    const getPeople = async (pge = 1) =>{
+    
+    const getPeople = async () =>{
         setError(null) // null prev result
         setLoading(true) // load whilst fetching data
         setResult(null)
-
         try {
             // make req 
-            const res = await StarWarsAPI.getAllPeople(pge) 
-            console.log(res)
+            const res = await StarWarsAPI.getAllPeople(page) 
             // store the info in a state
             setResult(res)
+            setSearchParams({ page: String(page) })
             } catch (error: any){
             setError(error.message)
             } finally{
             setLoading(false) //remove if data is fetched or an error is displayed
         }       
-        // setPage(1)
     }
     // fetch data when component is mounted, and fetch in case there is a change in page 
-    useEffect( ()=> {
-        getPeople(page)
-    }, [page])
+    useEffect(() => {
+        getPeople()
+        console.log(page)
+    }, [page]);
+
+    
 
     return (
         <>
@@ -45,7 +50,7 @@ const PeoplePage = () => {
                 <>
                     <People res={result} />
                     <Pagination
-                        page={page}
+                        page={result.current_page}
                         onPreviousPage={() => setPage(prevValue => prevValue - 1)}
                         onNextPage={() => setPage(prevValue => prevValue + 1)} 
                         currentPage={result.current_page} 

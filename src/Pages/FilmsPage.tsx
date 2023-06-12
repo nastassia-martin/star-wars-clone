@@ -15,6 +15,7 @@ const FilmsPage = () => {
     const [result, setResult] = useState<SW_FilmsResponse | null>(null)
     const [page, setPage] = useState(1)
 
+
     //get all films req
     const getFilms = async (pge = 1) =>{
         setError(null) // null prev result
@@ -24,7 +25,6 @@ const FilmsPage = () => {
         try {
             // make req 
             const res = await StarWarsAPI.getAllFilms(pge) 
-            console.log(res)
             // store the info in a state
             setResult(res)
             } catch (error: any){
