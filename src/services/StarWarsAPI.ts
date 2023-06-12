@@ -22,9 +22,8 @@ export const getFilm = async (film_id: number) => {
 	const response = await axios.get(`${BASE_URL}/films/${film_id}`)
 	return response.data as SW_FilmResponse
 }
-
-export const getAllPeople = async (page: number) => {
-	const response = await axios.get(`${BASE_URL}/people?page=${page}`)
+export const getAllPeople = async (search: string, page: number) => {
+	const response = await axios.get(`${BASE_URL}/people?search=${search}&page=${page}`)
 	return response.data as SW_PeopleResponse
 }
 

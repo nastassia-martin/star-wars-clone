@@ -19,9 +19,11 @@ to do: 9/6/23'
 to do: 10/6/23
 
 - types for people ✅
-- api for people
-- people Page
+- api for people ✅
+- people Page ✅
 
 Nice to haves:
+
+- bug when you are in a page already, ancd click on a resouce (to go back to first page) it doesnät work
 
 - update the tab with what page the user is on
