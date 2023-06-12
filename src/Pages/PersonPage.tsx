@@ -7,6 +7,7 @@ import { SW_PersonResponse } from '../types'
 import ErrorHandling from '../components/ErrorHandling'
 import GoBackButton from '../components/GoBackButton';
 import Loading from '../components/Loading';
+import Person from '../components/Person'
 
 const PersonPage = () => {
     const [error, setError] = useState<string | null>(null) // error state
@@ -39,7 +40,12 @@ const PersonPage = () => {
         <>
             {error && <ErrorHandling error={error} />}
             {loading && <Loading/>}
-            <h1>hi</h1>         
+            {person && (
+                <Person person={person}/>
+            )
+         
+            }
+                   
         </>
       )
 }
