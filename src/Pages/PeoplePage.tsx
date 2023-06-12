@@ -50,11 +50,12 @@ const PeoplePage = () => {
         if (!searchInput.trim().length) {
             return
         }
-        //reset page state
+        //reset page state // potential overkill if it is being set with 
         setPage(1)
 
         //set input value as query in search Params
         setSearchParams({ search: searchInput, page: String(page) })       
+        getPeople(searchInput, 1)
     }
     // fetch data when component is mounted, and fetch in case there is a change in page 
     useEffect(() => {
@@ -107,10 +108,7 @@ const PeoplePage = () => {
                         lastPage={result.last_page} 
                     />
                 </>
-            )}
-
-            
-                
+            )} 
         </>
     )
 }
