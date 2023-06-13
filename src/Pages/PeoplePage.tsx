@@ -17,12 +17,13 @@ const PeoplePage = () => {
     const [loading, setLoading] = useState(false)
     const [result, setResult] = useState<SW_PeopleResponse | null>(null)
     const [searchInput, setSearchInput] = useState("")
-    const [searchParams, setSearchParams] = useSearchParams()
-    // get "page=" from URL Search Params
-    const [page, setPage] = useState(Number(searchParams.get("page") || 1))
+    const [searchParams, setSearchParams] = useSearchParams({ search: "", page: "1" })
+
+    // get "page=" or default value of 1
+    const page = (Number(searchParams.get("page") || 1))
     // get "search=" from URL Search Params
-	const search = searchParams.get("search")
-   console.log(search)
+	const search = searchParams.get("search") || ""
+  
     //get all people req
     const getPeople = async (searchQuery: string, searchPage = 1) =>{
         setError(null) // null prev result
@@ -33,13 +34,11 @@ const PeoplePage = () => {
             // make req 
             const res = await StarWarsAPI.getAllPeople(searchQuery, searchPage) 
             // store the info in a state
-            console.log(res)
             setResult(res)
-            // setSearchParams({ page: String(page), search: searchInput }) // can work here?
-            } catch (error: any){
+        } catch (error: any) {
             setError(error.message)
-            } finally{
-            setLoading(false) //remove if data is fetched or an error is displayed
+        } finally {
+            setLoading(false) //remove if data is fetched OR if an error is displayed
         }       
     }
 
@@ -50,23 +49,16 @@ const PeoplePage = () => {
         if (!searchInput.trim().length) {
             return
         }
-        //reset page state // potential overkill if it is being set with 
-        setPage(1)
 
-        //set input value as query in search Params
-        setSearchParams({ search: searchInput, page: String(page) })       
-        getPeople(searchInput, 1)
+
+        //set input value as query in search Params & set page to 1
+        setSearchParams({ search: searchInput, page: "1" })       
+        getPeople(searchInput, page)
     }
     // fetch data when component is mounted, and fetch in case there is a change in page 
     useEffect(() => {
-        if(!search){
-            return
-        }
         getPeople(search, page)
-        console.log(page)
-    }, [page, search]);
-
-    
+    }, [search, page]);
 
     return (
         <>
@@ -102,8 +94,8 @@ const PeoplePage = () => {
                     <People res={result} />
                     <Pagination
                         page={result.current_page}
-                        onPreviousPage={() => setPage(prevValue => prevValue - 1)}
-                        onNextPage={() => setPage(prevValue => prevValue + 1)} 
+                        onPreviousPage={() => setSearchParams({search: searchInput, page: String(page-1)} )}
+                        onNextPage={() => setSearchParams({search: searchInput, page: String(page+1)} )} 
                         currentPage={result.current_page} 
                         lastPage={result.last_page} 
                     />
