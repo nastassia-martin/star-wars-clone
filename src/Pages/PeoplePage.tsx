@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react"
+import { useSearchParams } from "react-router-dom"
+
 import { SW_PeopleResponse } from "../types"
 import * as StarWarsAPI from '../services/StarWarsAPI'
 
@@ -6,10 +8,9 @@ import ErrorHandling from '../components/ErrorHandling'
 import Loading from '../components/Loading'
 import Pagination from "../components/Pagination"
 import People from "../components/People"
-import { useSearchParams } from "react-router-dom"
+import Search from "../components/Search"
 
-import Button from 'react-bootstrap/Button'
-import Form from 'react-bootstrap/Form'
+
 
 
 const PeoplePage = () => {
@@ -44,13 +45,10 @@ const PeoplePage = () => {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
-
         // this prevents user sbmitting a blank form even if they disable the required
         if (!searchInput.trim().length) {
             return
         }
-
-
         //set input value as query in search Params & set page to 1
         setSearchParams({ search: searchInput, page: "1" })       
         getPeople(searchInput, page)
@@ -58,36 +56,22 @@ const PeoplePage = () => {
     // fetch data when component is mounted, and fetch in case there is a change in page 
     useEffect(() => {
         getPeople(search, page)
-    }, [search, page]);
+    }, [search, page])
 
     return (
         <>
             {error && <ErrorHandling error={error} />}
             {loading && <Loading/>}
 
-            <h1>narrow your search: </h1>
-            <Form className="mb-4" onSubmit={handleSubmit}>
-                    <Form.Group className="mb-3" controlId="searchQuery">
-                        <Form.Label>Search Query</Form.Label>
-                        <Form.Control
-                            onChange={e => setSearchInput(e.target.value)} // SETsearch the user enters via e.value
-                            placeholder="Narrow your search"
-                            required
-                            type="text"
-                            value={searchInput} // search input
-                        />			
-                    </Form.Group>
-                    <div className='d-flex jusify-content-end'>
-                        <Button
-                            disabled={!searchInput.trim().length}
-                            variant="success"
-                            type="submit"
-                        >Search</Button>
-                    </div>
-            </Form>
+            {/* <h1>narrow your search: </h1> */}
+
+            <Search 
+                handleSubmit={handleSubmit}
+                searchInput={searchInput}
+                setSearchInput={setSearchInput}
+            />
             {result && (
                 <>
-
                 {search && (
                     <p>hello {search} here is your info: {result.total}</p>
                 )}

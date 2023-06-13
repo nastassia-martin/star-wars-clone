@@ -1,3 +1,5 @@
+import { Resource, FilmResource } from './generic'
+
 export type SW_FilmsResponse = {
     current_page: number
     data: SW_FilmData[]
@@ -41,15 +43,6 @@ export type SW_FilmResponse = {
     species: Resource[]
 }
 
-export type Resource = {
-    id: number
-    name: string
-}
-
-export type FilmResource = {
-    id: number
-    title: string
-}
 
 export type SW_PeopleResponse = {
     current_page: number

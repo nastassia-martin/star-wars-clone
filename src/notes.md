@@ -14,7 +14,6 @@ to do: 9/6/23'
 - pagination (basic) ✅
 - move Container for /films to Component? ✅
 - component for go back button ✅
-- mig
 
 to do: 10/6/23
 
@@ -22,8 +21,13 @@ to do: 10/6/23
 - api for people ✅
 - people Page ✅
 
-Nice to haves:
+todo 13/6/23
 
-- bug when you are in a page already, ancd click on a resouce (to go back to first page) it doesnät work
+- route grouping
+- moves types in own files
+
+- bug when you are in a page already, ancd click on a resouce (to go back to first page) it doesn't work ✅
+
+Nice to haves:
 
 - update the tab with what page the user is on
