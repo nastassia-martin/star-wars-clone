@@ -19,7 +19,7 @@ const Films: React.FC<IProps> = ({res}) => {
     }
   return (
     <>
-        <p>Showing films {res.from} to {res.to} of all {res.total} films</p>
+        <p>Showing {res.from} to {res.to} of all {res.total} films</p>
                 <Container className="p-4">
                     <Row  className="g-4">
                         {res.data.map(d=> (

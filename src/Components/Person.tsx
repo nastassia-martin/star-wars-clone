@@ -30,7 +30,7 @@ const Person:React.FC<IProps> = ({person}) => {
                         <Accordion.Item eventKey={String(person.films)}>
                         <Accordion.Header>Films</Accordion.Header>
                         <Accordion.Body>
-                            <ListGroup id='filmsList'>
+                            <ListGroup className='filmsList'>
                                 {person.films.map(film => (
                                     <ListGroup.Item
                                         action
@@ -48,7 +48,7 @@ const Person:React.FC<IProps> = ({person}) => {
                         <Accordion.Item eventKey={String(person.species)}>
                             <Accordion.Header>Species</Accordion.Header>
                                 <Accordion.Body>
-                                    <ListGroup id='speciesList'>
+                                    <ListGroup className='speciesList'>
                                         {person.species.map(speci => ( // this is a joke
                                            <ListGroup.Item
                                                action
@@ -66,7 +66,7 @@ const Person:React.FC<IProps> = ({person}) => {
                         <Accordion.Item eventKey={String(person.starships)}>
                             <Accordion.Header>Starships</Accordion.Header>
                                 <Accordion.Body>
-                                    <ListGroup id='starshipsList'>  
+                                    <ListGroup className='starshipsList'>  
                                         {person.starships.map(starship => ( 
                                             <ListGroup.Item
                                                 action
@@ -84,7 +84,7 @@ const Person:React.FC<IProps> = ({person}) => {
                          <Accordion.Item eventKey={String(person.vehicles)}>
                          <Accordion.Header>Vehicles</Accordion.Header>
                          <Accordion.Body>
-                            <ListGroup id='vehiclesList'>
+                            <ListGroup className='vehiclesList'>
                                  {person.vehicles.map(vehicle => (
                                     <ListGroup.Item
                                         action

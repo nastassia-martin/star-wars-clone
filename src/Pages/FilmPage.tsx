@@ -23,7 +23,6 @@ const FilmPage = () => {
 
         try{
             const data = await StarWarsAPI.getFilm(filmId)
-            console.log(data)
             setFilm(data)
 
         } catch (error: any){

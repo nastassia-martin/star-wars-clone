@@ -5,7 +5,15 @@
  */
 
 import axios from 'axios'
-import {SW_FilmResponse, SW_FilmsResponse, SW_PeopleResponse, SW_PersonResponse} from '../types/index'
+import {
+	SW_FilmResponse, 
+	SW_FilmsResponse, 
+	SW_PeopleResponse, 
+	SW_PersonResponse,
+	SW_PlanetsResponse,
+	SW_PlanetResponse
+
+} from '../types/index'
 
 const BASE_URL = 'https://swapi.thehiveresistance.com/api'
 
@@ -30,4 +38,14 @@ export const getAllPeople = async (search: string, page = 1) => {
 export const getPerson = async (person_id: number) => {
 	const response = await axios.get(`${BASE_URL}/people/${person_id}`)
 	return response.data as SW_PersonResponse
+}
+
+export const getAllPlanets = async (search: string, page = 1) => {
+	const response = await axios.get(`${BASE_URL}/planets?search=${search}&page=${page}`)
+	return response.data as SW_PlanetsResponse
+}
+
+export const getPlanet = async (planet_id: number) => {
+	const response = await axios.get(`${BASE_URL}/planets/${planet_id}`)
+	return response.data as SW_PlanetResponse
 }

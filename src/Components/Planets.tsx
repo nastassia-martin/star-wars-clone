@@ -4,39 +4,42 @@ import Container from 'react-bootstrap/Container'
 import ListGroup from 'react-bootstrap/ListGroup'
 import Row from 'react-bootstrap/Row'
 import { Link } from "react-router-dom"
-import { SW_PeopleResponse } from '../types'
+import { SW_PlanetsResponse } from '../types'
 
 interface IProps {
-    res: SW_PeopleResponse
+    res: SW_PlanetsResponse
 }
 
-const People:React.FC <IProps> = ({res}) => {
+const Planets:React.FC <IProps> = ({res}) => {
     if (res.total == 0){
         return <p>Nothing found!</p>
     }
 
   return (
         <>
-            <p>Showing {res.from} to {res.to} of all {res.total} characters.</p>
+            <p>Showing {res.from} to {res.to} of all {res.total} planets.</p>
                 <Container className="p-4">
                     <Row  className="g-4">
                         {res.data.map(d => (
                             <Card
                             key={d.id}
                             as={Link}
-                            to={`/people/${d.id}`}
+                            to={`/planets/${d.id}`}
                             >
                                 <Card.Body>
                                     <Card.Title>{d.name}</Card.Title>
                                         <ListGroup>
                                             <ListGroup.Item>
-                                                HomeWorld: {d.homeworld.name}
+                                                Population: {d.population}
                                             </ListGroup.Item>
                                             <ListGroup.Item>
-                                                Birth year: {d.birth_year}
+                                            Featured in: {d.films_count} films
                                             </ListGroup.Item>
                                             <ListGroup.Item>
-                                                Films Count: {d.films_count}
+                                                Population: {d.population}
+                                            </ListGroup.Item>
+                                            <ListGroup.Item>
+                                               Famous residents: {d.residents_count}
                                             </ListGroup.Item>
                                         </ListGroup>
                                 </Card.Body>
@@ -48,4 +51,4 @@ const People:React.FC <IProps> = ({res}) => {
   )
 }
 
-export default People
+export default Planets

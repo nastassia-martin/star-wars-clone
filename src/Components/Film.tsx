@@ -29,7 +29,7 @@ const Film: React.FC<IProps> = ({film}) => {
                         <Accordion.Item eventKey={String(film.characters)}>
                         <Accordion.Header>Characters</Accordion.Header>
                         <Accordion.Body>
-                            <ListGroup id='charactersList'>
+                            <ListGroup className='charactersList'>
                                 {film.characters.map(character => (
                                     <ListGroup.Item
                                         action
@@ -47,7 +47,7 @@ const Film: React.FC<IProps> = ({film}) => {
                         <Accordion.Item eventKey={String(film.planets)}>
                             <Accordion.Header>Planets</Accordion.Header>
                                 <Accordion.Body>
-                                    <ListGroup id='planetsList'>
+                                    <ListGroup className='planetsList'>
                                         {film.planets.map(planet => (
                                             <ListGroup.Item
                                                action
@@ -65,7 +65,7 @@ const Film: React.FC<IProps> = ({film}) => {
                         <Accordion.Item eventKey={String(film.species)}>
                             <Accordion.Header>Species</Accordion.Header>
                                 <Accordion.Body>
-                                    <ListGroup id='speciesList'>
+                                    <ListGroup className='speciesList'>
                                         {film.species.map(speci => ( // this is a joke
                                            <ListGroup.Item
                                                action
@@ -83,7 +83,7 @@ const Film: React.FC<IProps> = ({film}) => {
                         <Accordion.Item eventKey={String(film.starships)}>
                             <Accordion.Header>Starships</Accordion.Header>
                             <Accordion.Body>
-                                <ListGroup id='starshipsList'>
+                                <ListGroup className='starshipsList'>
                                     {film.starships.map(starship => ( 
                                         <ListGroup.Item
                                             action
@@ -101,7 +101,7 @@ const Film: React.FC<IProps> = ({film}) => {
                         <Accordion.Item eventKey={String(film.vehicles)}>
                             <Accordion.Header>Vehicles</Accordion.Header>
                             <Accordion.Body>
-                                <ListGroup id='vehiclesList'>
+                                <ListGroup className='vehiclesList'>
                                     {film.vehicles.map(vehicle => (
                                         <ListGroup.Item
                                             action
