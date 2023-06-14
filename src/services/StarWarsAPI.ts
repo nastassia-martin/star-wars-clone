@@ -15,16 +15,13 @@ import {
 	SW_SpeciesResponse, 
 	SW_SpeciResponse,
 	SW_StarshipsResponse, 
-	SW_StarshipResponse
-
+	SW_StarshipResponse,
+	SW_VehiclesResponse,
+	SW_VehicleResponse
 } from '../types/index'
 
 const BASE_URL = 'https://swapi.thehiveresistance.com/api'
 
-/**
- * Execute a HTTP GET request to all Films.
- * @returns Promise
- */
 export const getAllFilms = async (search: string, page = 1) => {
 	const response = await axios.get(`${BASE_URL}/films?search=${search}&page=${page}`)
 	return response.data as SW_FilmsResponse
@@ -72,4 +69,14 @@ export const getAllStarships = async (search: string, page = 1) => {
 export const getStarship = async (starship_id: number) => {
 	const response = await axios.get(`${BASE_URL}/starships/${starship_id}`)
 	return response.data as SW_StarshipResponse
+}
+
+export const getAllVehicles = async (search: string, page = 1) => {
+	const response = await axios.get(`${BASE_URL}/vehicles?search=${search}&page=${page}`)
+	return response.data as SW_VehiclesResponse
+}
+
+export const getVehicle = async (starship_id: number) => {
+	const response = await axios.get(`${BASE_URL}/vehicles/${starship_id}`)
+	return response.data as SW_VehicleResponse
 }
