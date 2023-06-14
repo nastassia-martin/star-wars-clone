@@ -14,6 +14,9 @@ import SpeciesPage from './pages/SpeciesPage'
 import SpeciPage from './pages/SpeciPage'
 import StarshipsPage from './pages/StarshipsPage'
 import StarshipPage from './pages/StarshipPage'
+import VehiclesPage from './pages/VehiclesPage'
+// import VehiclePage from './pages/VehiclePage'
+
 
 
 const App = () => {
@@ -47,6 +50,11 @@ const App = () => {
           <Route path="/starships">
             <Route path="" element={<StarshipsPage/>} />
             <Route path=':id' element={<StarshipPage />} />
+          </Route>
+
+          <Route path="/vehicles">
+            <Route path="" element={<VehiclesPage/>} />
+            {/* <Route path=':id' element={<VehiclePage />} /> */}
           </Route>
           
           <Route path="/*" element={<NotFound />} /> 

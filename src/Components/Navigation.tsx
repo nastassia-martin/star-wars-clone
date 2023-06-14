@@ -18,8 +18,7 @@ const Navigation = () => {
                         <Nav.Link as={NavLink} to="/planets">Planets</Nav.Link>
                         <Nav.Link as={NavLink} to="/species">Species</Nav.Link>
                         <Nav.Link as={NavLink} to="/starships">Starships</Nav.Link>
-                        {/* <Nav.Link as={NavLink} to="/vehicles">Vehicles</Nav.Link> */}
-
+                        <Nav.Link as={NavLink} to="/vehicles">Vehicles</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

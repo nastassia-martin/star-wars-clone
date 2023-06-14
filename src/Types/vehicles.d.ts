@@ -2,7 +2,7 @@ import { Resource, FilmResource } from './generic'
 
 export type SW_VehiclesResponse = {
     current_page: number
-    data: SW_PlanetData[]
+    data: SW_VehicleData[]
     from: number
     last_page: number
     to: number
