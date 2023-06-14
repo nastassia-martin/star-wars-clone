@@ -12,6 +12,8 @@ import PlanetsPage from './pages/PlanetsPage'
 import PlanetPage from './pages/PlanetPage'
 import SpeciesPage from './pages/SpeciesPage'
 import SpeciPage from './pages/SpeciPage'
+import StarshipsPage from './pages/StarshipsPage'
+import StarshipPage from './pages/StarshipPage'
 
 
 const App = () => {
@@ -40,6 +42,11 @@ const App = () => {
           <Route path="/species">
             <Route path="" element={<SpeciesPage/>} />
             <Route path=':id' element={<SpeciPage />} />
+          </Route>
+
+          <Route path="/starships">
+            <Route path="" element={<StarshipsPage/>} />
+            <Route path=':id' element={<StarshipPage />} />
           </Route>
           
           <Route path="/*" element={<NotFound />} /> 

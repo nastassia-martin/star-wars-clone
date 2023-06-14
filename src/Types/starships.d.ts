@@ -12,6 +12,7 @@ export type SW_StarshipsResponse = {
 export type SW_StarshipsData = {
     id: number
     name: string
+    model: string
     starship_class: string
     manufacturer: string
     cost_in_credits: string
