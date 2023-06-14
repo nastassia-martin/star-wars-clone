@@ -11,7 +11,7 @@ interface IProps {
 
 const Search:React.FC <IProps> = ({handleSubmit, searchInput, setSearchInput}) => {
   return (
-    <Form className="mb-4" onSubmit={handleSubmit}>
+    <Form className="my-4" onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="searchQuery">
             <Form.Label>Search Query</Form.Label>
             <Form.Control
@@ -25,7 +25,7 @@ const Search:React.FC <IProps> = ({handleSubmit, searchInput, setSearchInput}) =
         <div className='d-flex jusify-content-end'>
             <Button
             disabled={!searchInput.trim().length}
-            variant="success"
+            variant="light"
             type="submit"
             >Search</Button>
         </div>

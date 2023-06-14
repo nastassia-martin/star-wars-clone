@@ -8,7 +8,7 @@ const GoBackButton = () => {
     <div className="nav-back">
         <Button
             onClick={() => navigate(-1)} 
-            variant="primary"
+            variant="light"
         >&laquo; Go back</Button>
     </div>
   )

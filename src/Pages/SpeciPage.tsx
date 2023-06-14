@@ -22,9 +22,7 @@ const SpeciPage = () => {
 
         try {
             const data = await StarWarsAPI.getSpeci(speciesId)
-            console.log(data)
             setSpecies(data)
-
             } catch (error: any){
             setError(error.message)
             } finally {

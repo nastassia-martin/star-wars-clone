@@ -23,7 +23,6 @@ const PlanetPage = () => {
 
         try{
             const data = await StarWarsAPI.getPlanet(planetId)
-            console.log(data)
             setPlanet(data)
         } catch (error: any){
             setError(error.message)

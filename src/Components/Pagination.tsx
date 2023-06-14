@@ -16,7 +16,7 @@ const Pagination: React.FC<IProps> = ({currentPage, lastPage, page, onNextPage, 
             <Button
                 disabled={page <= 1} // IF PAGE IS ON THE FIRST PAGE YOU CANT GO BACK
                 onClick={onPreviousPage} //GO BACK BY 1 PAGE
-                variant="primary"
+                variant="light"
             >Previous Page</Button>
         </div> 
         <div className="page">Page {currentPage} of {lastPage}</div> 
@@ -24,7 +24,7 @@ const Pagination: React.FC<IProps> = ({currentPage, lastPage, page, onNextPage, 
             <Button
                 disabled={page === lastPage} //IF PAGE IS ON THE LAST PAGE YOU CANT GO BACK
                 onClick={onNextPage} //GO forward BY 1 PAGE
-                variant="primary"
+                variant="light"
             >Next Page</Button>
         </div>
     </div>

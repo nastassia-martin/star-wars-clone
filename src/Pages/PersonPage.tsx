@@ -22,7 +22,6 @@ const PersonPage = () => {
 
         try {
             const data = await StarWarsAPI.getPerson(personId)
-            console.log(data)
             setPerson(data)
 
             } catch (error: any){

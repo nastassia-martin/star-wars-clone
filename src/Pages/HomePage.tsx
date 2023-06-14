@@ -1,73 +1,84 @@
 import Button from 'react-bootstrap/Button'
-import Card from 'react-bootstrap/Card';
+import Card from 'react-bootstrap/Card'
+import Col from 'react-bootstrap/Col'
 import Container from 'react-bootstrap/Container'
-import {Link, NavLink} from 'react-router-dom'
-import * as StarWarsAPI from '../services/StarWarsAPI'
-import { useEffect, useState } from 'react';
-import { SW_SearchResponse } from '../types';
+import Row from 'react-bootstrap/Row'
 
+import {Link} from 'react-router-dom'
 
 const HomePage = () => {
-    // const [resource, setResource] = useState('')
-    // const [data, setData] = useState<SW_SearchResponse|null>(null)
-
-    // useEffect(() => {
-	// 	const fetchData = async () => {
-	// 		if (!resource) {
-	// 			return
-	// 		}
-	// 		setData(null)
-	// 		try {
-	// 			const payload = await StarWarsAPI.get(resource)
-    //             console.log(payload)
-    //             setData(payload)
-	// 		} catch (e: any) {
-	// 		} finally {
-	// 		}
-	// 	}
-    //     console.log(data) // doesn't get called
-	// 	// call function
-	// 	fetchData()
-	// }, [resource])
-    // console.log(data) // null
-
-// when user click on Films, a get req is trigged for SWAPI/films
     return ( 
-        <Container>
+        <Container className="m-3">
             <h1>Welcome Traveller!</h1>
-            <p>What are you looking for?</p> 
-            
-            {/* move to component */}
-            
-            <Card style={{ width: '18rem' }}>
-                {/* <Card.Img variant="top" src="holder.js/100px180" /> */}
-                <Card.Body>
-                    <Card.Title>Films</Card.Title>
-                    <Card.Text>
-                        Are you looking to do a deep dive into the galaxy?
-                    </Card.Text>
-                    <Link to={'/films'}>
-                        <Button 
-                        // variant="primary" 
-                        // onClick={() => setResource('films')}
-                        // as={Link}
-                        >
-                        Go to Films</Button>
-                    </Link>
-                </Card.Body>
-            </Card>
+            <Row md={2} sm={1} className="g-4">
+                <Col>
+                    <Card>
+                        <Card.Body>
+                            <Card.Title>Films</Card.Title>
+                            <Card.Text>Browse films from the galaxy</Card.Text>
+                            <Link to={'/films'}>
+                                <Button variant="dark">Go to Films</Button>
+                            </Link>
+                        </Card.Body>
+                    </Card>
+                </Col>
+                <Col>
+                    <Card className="">
+                        <Card.Body>
+                            <Card.Title>People</Card.Title>
+                            <Card.Text>Browse characters from the galaxy</Card.Text>
+                            <Link to={'/people'}>
+                                <Button variant="dark">Go to People</Button>
+                            </Link>
+                        </Card.Body>
+                    </Card>
+                </Col>
+                <Col>
+                    <Card>
+                        <Card.Body>
+                            <Card.Title>Planets</Card.Title>
+                            <Card.Text>Browse planets from the galaxy</Card.Text>
+                            <Link to={'/planets'}>
+                                <Button variant="dark">Go to Planets</Button>
+                            </Link>
+                        </Card.Body>
+                    </Card>
+                </Col>
+                <Col>
+                    <Card>
+                        <Card.Body>
+                            <Card.Title>Species</Card.Title>
+                            <Card.Text>Browse species from the galaxy</Card.Text>
+                            <Link to={'/species'}>
+                                <Button variant="dark">Go to Species</Button>
+                            </Link>
+                        </Card.Body>
+                    </Card>
+                </Col>
+                <Col>
+                    <Card>
+                        <Card.Body>
+                            <Card.Title>Starships</Card.Title>
+                            <Card.Text>Browse species from the galaxy</Card.Text>
+                            <Link to={'/starships'}>
+                                <Button variant="dark">Go to Starships</Button>
+                            </Link>
+                        </Card.Body>
+                    </Card>
+                </Col>
+                <Col>
+                    <Card>
+                        <Card.Body>
+                            <Card.Title>Vehicles</Card.Title>
+                            <Card.Text>Browse species from the galaxy</Card.Text>
+                            <Link to={'/vehicles'}>
+                                <Button variant="dark">Go to Vehicles</Button>
+                            </Link>
+                        </Card.Body>
+                    </Card>
+                </Col>
+            </Row>       
         </Container>    
   )
 }
-
-
-        
-
-//             <Link to="/people">
-//                 <Button variant="primary">Go to Characters</Button>
-//             </Link>
-       
-//     )
-// }
-
 export default HomePage

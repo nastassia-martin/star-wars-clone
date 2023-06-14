@@ -25,7 +25,6 @@ const FilmsPage = () => {
 
     //get all films req
     const getFilms = async (searchQuery: string, searchPage = 1) =>{
-        console.log(search)
         setError(null) // null prev result
         setLoading(true) // load whilst fetching data
         setResult(null)

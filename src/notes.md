@@ -25,10 +25,19 @@ todo 14/6/23
 
 - route grouping ✅
 - moves types in own files ✅
-- navigation, routes & API for all resources!
+- navigation, routes & API for all resources! ✅
 - clean up code!! folders maybe?
 
 - bug when you are in a page already, ancd click on a resouce (to go back to first page) it doesn't work ✅
+
+final 14/6/23
+CSS:
+HOMEPAGE:
+button change from blue! ✅
+
+- gap between film cards - flex?? ✅
+- remove link styling in /all page ✅
+- get rid of console logs
 
 Nice to haves:
 

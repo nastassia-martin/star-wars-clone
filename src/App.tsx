@@ -59,7 +59,6 @@ const App = () => {
           
           <Route path="/*" element={<NotFound />} /> 
 
-          {/* <Route></Route> Other Resources...*/}
         </Routes>
         </Container>
     </div>

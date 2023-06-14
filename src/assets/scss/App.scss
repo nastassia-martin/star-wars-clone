@@ -1,6 +1,5 @@
 @import "bootstrap/scss/bootstrap";
 
-
 body {
     background-color: black;
     color: #39FF14
@@ -8,6 +7,10 @@ body {
 
 #App {
 	min-height: 100vh;
+}
+
+a {
+    text-decoration: none;
 }
 
 @import './error.scss'
