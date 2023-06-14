@@ -23,7 +23,7 @@ to do: 10/6/23
 
 todo 14/6/23
 
-- route grouping
+- route grouping ✅
 - moves types in own files ✅
 - navigation, routes & API for all resources!
 - clean up code!! folders maybe?
