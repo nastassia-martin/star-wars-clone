@@ -16,12 +16,20 @@ const App = () => {
         <Container>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          {/* <Route></Route> // Main Search Page */}
+
+          <Route path="/films">
+            <Route path="" element={<FilmsPage />} />
+            <Route path=':id' element={<FilmPage />} />
+          </Route>
+          
+          <Route path="/people">
+            <Route path="" element={<PeoplePage/>} />
+            <Route path=':id' element={<PersonPage />} />
+          </Route>
+          
+
+          
           <Route path="/*" element={<NotFound />} /> 
-          <Route path="/films" element={<FilmsPage />} />
-          <Route path='/films/:id' element={<FilmPage />} />
-          <Route path="/people" element={<PeoplePage/>} />
-          <Route path='/people/:id' element={<PersonPage />} />
 
           {/* <Route></Route> Other Resources...*/}
         </Routes>
