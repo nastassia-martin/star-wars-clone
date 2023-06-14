@@ -41,7 +41,10 @@ const PersonPage = () => {
             {error && <ErrorHandling error={error} />}
             {loading && <Loading/>}
             {person && (
+                <>
                 <Person person={person}/>
+                <GoBackButton />
+                </>
             )
          
             }

@@ -4,14 +4,12 @@ import { useSearchParams } from "react-router-dom"
 import { SW_PeopleResponse } from "../types"
 import * as StarWarsAPI from '../services/StarWarsAPI'
 
+//components
 import ErrorHandling from '../components/ErrorHandling'
 import Loading from '../components/Loading'
 import Pagination from "../components/Pagination"
 import People from "../components/People"
 import Search from "../components/Search"
-
-
-
 
 const PeoplePage = () => {
     const [error, setError] = useState<string|null>(null)
@@ -51,9 +49,10 @@ const PeoplePage = () => {
         }
         //set input value as query in search Params & set page to 1
         setSearchParams({ search: searchInput, page: "1" })       
+        // make req
         getPeople(searchInput, page)
     }
-    // fetch data when component is mounted, and fetch in case there is a change in page 
+    // fetch data when component is mounted, and fetch in case there is a change in page  or search
     useEffect(() => {
         getPeople(search, page)
     }, [search, page])
@@ -63,18 +62,14 @@ const PeoplePage = () => {
             {error && <ErrorHandling error={error} />}
             {loading && <Loading/>}
 
-            {/* <h1>narrow your search: </h1> */}
-
             <Search 
                 handleSubmit={handleSubmit}
                 searchInput={searchInput}
                 setSearchInput={setSearchInput}
             />
+
             {result && (
                 <>
-                {search && (
-                    <p>hello {search} here is your info: {result.total}</p>
-                )}
                     <People res={result} />
                     <Pagination
                         page={result.current_page}

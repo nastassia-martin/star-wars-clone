@@ -13,9 +13,13 @@ interface IProps {
 
 
 const Films: React.FC<IProps> = ({res}) => {
+
+    if (res.total == 0){
+        return <p>Nothing found!</p>
+    }
   return (
     <>
-        <p>Showing films {res.from} to {res.to} of all {res.total} films!</p>
+        <p>Showing films {res.from} to {res.to} of all {res.total} films</p>
                 <Container className="p-4">
                     <Row  className="g-4">
                         {res.data.map(d=> (

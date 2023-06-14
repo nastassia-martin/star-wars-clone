@@ -9,7 +9,7 @@ const GoBackButton = () => {
         <Button
             onClick={() => navigate(-1)} 
             variant="primary"
-        >&laquo; Back to films</Button>
+        >&laquo; Go back</Button>
     </div>
   )
 }

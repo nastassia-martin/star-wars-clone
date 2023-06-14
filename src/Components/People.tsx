@@ -11,9 +11,13 @@ interface IProps {
 }
 
 const People:React.FC <IProps> = ({res}) => {
+    if (res.total == 0){
+        return <p>Nothing found!</p>
+    }
+
   return (
         <>
-            <p>Showing characters {res.from} to {res.to} of {res.total} characters!</p>
+            <p>Showing characters {res.from} to {res.to} of {res.total} characters.</p>
                 <Container className="p-4">
                     <Row  className="g-4">
                         {res.data.map(d => (
