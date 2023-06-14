@@ -1,6 +1,5 @@
 import { Resource, FilmResource } from './generic'
 
-
 export type SW_PeopleResponse = {
     current_page: number
     data: SW_PeopleData[]

@@ -34,6 +34,11 @@ const App = () => {
             <Route path="" element={<PlanetsPage/>} />
             <Route path=':id' element={<PlanetPage />} />
           </Route>
+
+          {/* <Route path="/species">
+            <Route path="" element={<SpeciesPage/>} />
+            <Route path=':id' element={<SpeciPage />} />
+          </Route> */}
           
           <Route path="/*" element={<NotFound />} /> 
 
