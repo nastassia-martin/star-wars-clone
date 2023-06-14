@@ -15,7 +15,7 @@ import SpeciPage from './pages/SpeciPage'
 import StarshipsPage from './pages/StarshipsPage'
 import StarshipPage from './pages/StarshipPage'
 import VehiclesPage from './pages/VehiclesPage'
-// import VehiclePage from './pages/VehiclePage'
+import VehiclePage from './pages/VehiclePage'
 
 
 
@@ -54,7 +54,7 @@ const App = () => {
 
           <Route path="/vehicles">
             <Route path="" element={<VehiclesPage/>} />
-            {/* <Route path=':id' element={<VehiclePage />} /> */}
+            <Route path=':id' element={<VehiclePage />} />
           </Route>
           
           <Route path="/*" element={<NotFound />} /> 

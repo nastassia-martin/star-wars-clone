@@ -5,38 +5,37 @@ import Card from 'react-bootstrap/Card'
 import Container from 'react-bootstrap/Container'
 import ListGroup from 'react-bootstrap/ListGroup'
 import Row from 'react-bootstrap/Row'
-import { SW_StarshipResponse } from '../types'
+import { SW_VehicleResponse } from '../types'
 
 interface IProps {
-    starship: SW_StarshipResponse
+    vehicle: SW_VehicleResponse
 }
 
-const Starship:React.FC<IProps> = ({starship}) => {
+const Starship:React.FC<IProps> = ({vehicle}) => {
     return (
         <Container className="m-3">
             <Row className="g-4 mb-3">
-                <Card className='p-3' key={starship.id}>
+                <Card className='p-3' key={vehicle.id}>
                 <Card.Body>
-                    <Card.Title>{starship.name}</Card.Title>
-                    <Card.Text>Model: {starship.model}</Card.Text>
-                    <Card.Text>Starship Class: {starship.starship_class}</Card.Text>
-                     <Card.Text>Manufacturer: {starship.manufacturer}</Card.Text>
-                     <Card.Text>Cost in credits: {starship.cost_in_credits}</Card.Text>
-                    <Card.Text>Length: {starship.length}</Card.Text>
-                    <Card.Text>Crew: {starship.crew}</Card.Text>
-                    <Card.Text>Passengers: {starship.passengers}</Card.Text>
-                    <Card.Text>Max atmosphering speed: {starship.max_atmosphering_speed}</Card.Text>
-                    <Card.Text>MGLT: {starship.MGLT}</Card.Text>
-                    <Card.Text>Cargo Capacity: {starship.cargo_capacity}</Card.Text>
-                    <Card.Text>Consumables: {starship.consumables}</Card.Text>
+                    <Card.Title>{vehicle.name}</Card.Title>
+                    <Card.Text>Model: {vehicle.model}</Card.Text>
+                    <Card.Text>Vehicle Class: {vehicle.vehicle_class}</Card.Text>
+                     <Card.Text>Manufacturer: {vehicle.manufacturer}</Card.Text>
+                     <Card.Text>Cost in credits: {vehicle.cost_in_credits}</Card.Text>
+                    <Card.Text>Length: {vehicle.length}</Card.Text>
+                    <Card.Text>Crew: {vehicle.crew}</Card.Text>
+                    <Card.Text>Passengers: {vehicle.passengers}</Card.Text>
+                    <Card.Text>Max atmosphering speed: {vehicle.max_atmosphering_speed}</Card.Text>
+                    <Card.Text>Cargo Capacity: {vehicle.cargo_capacity}</Card.Text>
+                    <Card.Text>Consumables: {vehicle.consumables}</Card.Text>
                 </Card.Body>
                 <Accordion>
-                    {starship.films.length > 0 && (
-                        <Accordion.Item eventKey={String(starship.films)}>
+                    {vehicle.films.length > 0 && (
+                        <Accordion.Item eventKey={String(vehicle.films)}>
                             <Accordion.Header>Films</Accordion.Header>
                             <Accordion.Body>
                             <ListGroup className='filmsList'>
-                                {starship.films.map(film => (
+                                {vehicle.films.map(film => (
                                     <ListGroup.Item
                                         action
                                         as={Link} // will link to films page
@@ -49,12 +48,12 @@ const Starship:React.FC<IProps> = ({starship}) => {
                             </Accordion.Body>
                         </Accordion.Item>
                     )}
-                    {starship.pilots.length > 0 && (
-                        <Accordion.Item eventKey={String(starship.pilots)}>
+                    {vehicle.pilots.length > 0 && (
+                        <Accordion.Item eventKey={String(vehicle.pilots)}>
                             <Accordion.Header>Pilots</Accordion.Header>
                                 <Accordion.Body>
                                     <ListGroup className='pilotsList'>
-                                        {starship.pilots.map(pilot => ( // this is a joke
+                                        {vehicle.pilots.map(pilot => ( // this is a joke
                                            <ListGroup.Item
                                                action
                                                as={Link} // will link to People page
