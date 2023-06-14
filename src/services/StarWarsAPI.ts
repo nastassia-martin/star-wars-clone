@@ -13,7 +13,9 @@ import {
 	SW_PlanetsResponse,
 	SW_PlanetResponse,
 	SW_SpeciesResponse, 
-	SW_SpeciResponse
+	SW_SpeciResponse,
+	SW_StarshipsResponse, 
+	SW_StarshipResponse
 
 } from '../types/index'
 
@@ -54,10 +56,20 @@ export const getPlanet = async (planet_id: number) => {
 
 export const getAllSpecies = async (search: string, page = 1) => {
 	const response = await axios.get(`${BASE_URL}/species?search=${search}&page=${page}`)
-	return response.data as SW_SpeciesResponse
+	return response.data as SW_StarshipsResponse
 }
 
 export const getSpeci = async (species_id: number) => {
 	const response = await axios.get(`${BASE_URL}/species/${species_id}`)
 	return response.data as SW_SpeciResponse
+}
+
+export const getAllStarships = async (search: string, page = 1) => {
+	const response = await axios.get(`${BASE_URL}/starships?search=${search}&page=${page}`)
+	return response.data as SW_SpeciesResponse
+}
+
+export const getStarship = async (starship_id: number) => {
+	const response = await axios.get(`${BASE_URL}/starships/${starship_id}`)
+	return response.data as SW_StarshipResponse
 }

@@ -1,6 +1,6 @@
 import { Resource, FilmResource } from './generic'
 
-export type SW_StarshipssResponse = {
+export type SW_StarshipsResponse = {
     current_page: number
     data: SW_StarshipsData[]
     from: number
