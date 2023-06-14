@@ -21,10 +21,12 @@ to do: 10/6/23
 - api for people ✅
 - people Page ✅
 
-todo 13/6/23
+todo 14/6/23
 
 - route grouping
 - moves types in own files
+- navigation, routes & API for all resources!
+- clean up code!! folders maybe?
 
 - bug when you are in a page already, ancd click on a resouce (to go back to first page) it doesn't work ✅
 
