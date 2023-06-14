@@ -27,7 +27,7 @@ export type SW_SpeciesData = {
     homeworld: Resource
 }
 
-export type SW_SpeciData = {
+export type SW_SpeciResponse = {
     id: number
     name: string
     classification: string
