@@ -10,6 +10,7 @@ import PeoplePage from './pages/PeoplePage'
 import PersonPage from './pages/PersonPage'
 import PlanetsPage from './pages/PlanetsPage'
 import PlanetPage from './pages/PlanetPage'
+import SpeciesPage from './pages/SpeciesPage'
 
 
 const App = () => {
@@ -35,10 +36,10 @@ const App = () => {
             <Route path=':id' element={<PlanetPage />} />
           </Route>
 
-          {/* <Route path="/species">
+          <Route path="/species">
             <Route path="" element={<SpeciesPage/>} />
-            <Route path=':id' element={<SpeciPage />} />
-          </Route> */}
+            {/* <Route path=':id' element={<SpeciPage />} /> */}
+          </Route>
           
           <Route path="/*" element={<NotFound />} /> 
 

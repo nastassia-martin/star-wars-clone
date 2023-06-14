@@ -24,7 +24,7 @@ export type SW_SpeciesData = {
     edited: string
     people_count: number
     films_count: number
-    homeworld: Resource
+    homeworld: Resource | null
 }
 
 export type SW_SpeciResponse = {
